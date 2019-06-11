@@ -1,6 +1,6 @@
 @section('content')
         <div class= "MainStyle">
-             DarkSky
+             MyApp
         </div>
         <div class= "IconStyle">
           <hr><hr>
