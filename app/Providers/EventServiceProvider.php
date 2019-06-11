@@ -18,6 +18,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+         \App\Events\ArticleCreated::class => [
+            \App\Listeners\ArticlesEventListener::class,
+         ],
+             \Illuminate\Auth\Events\Login::class => [
+            \App\Listeners\UsersEventListener::class,
+        ],
     ];
 
     /**
@@ -36,8 +42,8 @@ class EventServiceProvider extends ServiceProvider
         });
         */
         \Event::listen(
-            //'article.created',
-            \App\Events\ArticleCreated::class,
+            'article.created',
+            //\App\Events\ArticleCreated::class,
             \App\Listeners\ArticlesEventListener::class
         );
         //

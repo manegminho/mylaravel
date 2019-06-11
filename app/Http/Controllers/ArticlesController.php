@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    public function show($id)
+    {
+        /* echo $foo;
+        return __METHOD__ . '은(는)다음 기본키를 가진 Article 모델을 조회합니다.:' . $id; */
+        $articles = \App\Article::findOrFail($id);
+        return $articles->toArray();
+    }
     public function create()
     {
         return view('articles.create');
