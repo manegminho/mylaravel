@@ -33,7 +33,7 @@
             @forelse($articles as $article)
                  <tr  height="65px"  bgcolor ='#FFFFFF'>
                     <td align="center">{{$article->id}}</td>
-                    <td align=center><a href="article/{{$article->id}}">{{$article->title}}</a></td>
+                    <td align=center><a href="/article/{{$article->id}}">{{$article->title}}</a></td>
                     <td align=center>{{$article->user->name}}</td>
                     <td align=center>{{$article->hit}}</td>
                  </tr>

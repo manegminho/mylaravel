@@ -25,6 +25,9 @@ class ArticlesController extends Controller
         //$articles = \App\Article::with('user')->get();
         return view('articles.index', compact('articles'));
     }
+
+
+
     public function store(Request $request)
     {
         $rules = ['title' => ['required'], 'content' => ['required', 'min:10']];

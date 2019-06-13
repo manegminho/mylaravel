@@ -71,8 +71,18 @@ Route::get('create', 'ArticlesController@create');
 
 
 Route::get('article/{id?}', function ($id) {
-    $nArticle = DB::table('articles')->where('id', $id)->first();
-    return view('articles/article')->with('Article', $nArticle);
+    $nArticle[0] = DB::table('articles')->where('id', $id)->first();
+    $nArticle[1] = DB::table('users')->where('id',  $nArticle[0]->user_id)->first();
+    return view('articles/article')->with('Article', $nArticle[0])->with('User', $nArticle[1]);
+});
+
+Route::get('edit/{id?}/{content?}', function ($id, $content) {
+    DB::table('articles')->where('id', $id)->update(['content' => $content]);
+    return View('Main');
+});
+Route::get('delete/{id?}', function ($id) {
+    DB::table('articles')->where('id', '=', $id)->delete();
+    return View('Main');
 });
 
 
