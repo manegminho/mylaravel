@@ -67,6 +67,15 @@ Route::resource('articles', 'ArticlesController');
 Route::get('create', 'ArticlesController@create');
 
 
+
+
+
+Route::get('article/{id?}', function ($id) {
+    $nArticle = DB::table('articles')->where('id', $id)->first();
+    return view('articles/article')->with('Article', $nArticle);
+});
+
+
 Event::listen('article.created', function ($article) {
     var_dump('이벤트를 받았습니다. 받은 데이터는 다음과 같습니다.');
     var_dump($article->toArray());

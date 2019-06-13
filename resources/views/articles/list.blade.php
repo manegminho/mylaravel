@@ -11,30 +11,52 @@
 </table> --}}
 @section('content2')
 
-    <div class="container">
-        <h1 class = "ListStyle"> Article</h1>
-        <table border=1 bordercolor ="white" cellspacing=0 cellpdding=0 width='100%' height= '5%' class="txt" align="center" bgcolor ="DDDDFF">
-            <tr class ="TableHeadFont">
-                        <td width="10%" align="center"> 번호</td>
-                        <td width="50%" align=center>제목</td>
-                        <td width="10%" align=center>글쓴이</td>
-                        <td width="20%" align=center>작성일</td>
+    <pre class ="ListStyle">        Article</pre>
+    <div class="FontStyle">
+        {{-- <table border=1 bordercolor ="white" cellspacing=0 cellpdding=0 width='90%' class="txt" align="center" bgcolor ="DDDDFF"> --}}
+            <table cellspacing=0 cellpdding=0 width='90%' class="txt" align="center" bgcolor ="DDDDFF">
+            <tr bgcolor="#5AB2C8">
+                <td colspan="5" height=1></td>
+            </tr>
+            <tr height="65px" bordercolor ="lightgray" >
+                        <td width="10%" align="center">번호</td>
+                        <td width="45%" align=center>제목</td>
+                        <td width="25%" align=center>글쓴이</td>
+                       {{--  <td width="20%" align=center>작성일</td> --}}
                         <td width="10%" align=center>조회</td>
             </tr>
-        </table>
-        <table border=1 bordercolor ="lightgray" cellspacing=0 cellpdding=0 width='100%'  class="txt" align="center" bgcolor ="FFFFFF">
-            @forelse($articles as $article)
-            <tr height="65px">
-                <td width="10%"  align="center"><strong>{{$article->id}}</strong></td><hz></hz>
-                 <td width="50%" align=center><strong>{{$article->title}}</strong></td>
-                 <td width="10%" align=center><strong>{{ $article->user->name }}</strong></td>
-                 <td width="20%" align=center><strong>{{ $article->created_at }}</strong></td>
-                 <td width="10%" align=center><strong>{{ $article->hit }}</strong></td>
+
+            <tr bgcolor="#5AB2C8">
+                <td colspan="5" height=1></td>
             </tr>
 
+            @forelse($articles as $article)
+                 <tr  height="65px"  bgcolor ='#FFFFFF'>
+                    <td align="center">{{$article->id}}</td>
+                    <td align=center><a href="article/{{$article->id}}">{{$article->title}}</a></td>
+                    <td align=center>{{$article->user->name}}</td>
+                    <td align=center>{{$article->hit}}</td>
+                 </tr>
+            <tr bgcolor="#CCCCCC">
+                <td colspan="5" height=1></td>
+            </tr>
             @empty
             <p>글이 없습니다.</p>
             @endforelse
+        </table>
+        {{-- <table border=1 bordercolor ="lightgray" cellspacing=0 cellpdding=0 width='90%'  class="txt" align="center" bgcolor ="FFFFFF"> --}}
+           {{--  <table  bordercolor ="lightgray" cellspacing=0 cellpdding=0 width='90%'  class="txt" align="center" bgcolor ="FFFFFF">
+            @forelse($articles as $article)
+            <tr height="65px">
+                <td width="10%"  align="center">{{$article->id}}</td><hz></hz>
+                 <td width="45%" align=center>{{$article->title}}</td>
+                 <td width="25%" align=center>{{$article->user->name}}</td>
+                 <td width="20%" align=center>{{$article->created_at}}</td>
+                 <td width="10%" align=center>{{$article->hit}}</td>
+
+            </tr> --}}
+
+
         </table>
     </div>
     @if($articles->count() > 0 )
@@ -58,6 +80,7 @@
                  <tr>
                 <td class ="FontStyle" width="4%" align=center>[작성]</td>
                 <td class ="FontStyle" width="4%" align=center>[검색]</td>
+
         </table>
         <hr><hr>
     </div>
