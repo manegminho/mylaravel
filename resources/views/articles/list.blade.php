@@ -10,7 +10,15 @@
  </tr>
 </table> --}}
 @section('content2')
+    @guest
+        <script>
 
+             setTimeout(function() {
+                            location.href = "/";
+                            alert('로그인 해주세요');
+                        }, 2000); // 3000ms(3초)가 경과하면 이 함수가 실행됩니다.
+        </script>
+    @endguest
     <pre class ="ListStyle">        Article</pre>
     <div class="FontStyle">
         {{-- <table border=1 bordercolor ="white" cellspacing=0 cellpdding=0 width='90%' class="txt" align="center" bgcolor ="DDDDFF"> --}}

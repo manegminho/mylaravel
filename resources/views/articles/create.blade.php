@@ -5,7 +5,7 @@
 
 @section('content2')
     <div class = "container">
-        <h1>wrtie new article</h1>
+        <h1>새글</h1>
         <hr/>
 
         <form action = "{{ route('articles.store') }}" method="POST">
@@ -14,6 +14,7 @@
             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                 <label for="title">제목</label>
                 <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control" />
+                <input type="hidden" name="userID" id="userID" value="{{ Auth::user()->id }}" class="form-control" />
                 {!! $errors->first('title', '<span class="form-error">:message</span>') !!}
             </div>
 

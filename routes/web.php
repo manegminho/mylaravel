@@ -69,21 +69,36 @@ Route::get('create', 'ArticlesController@create');
 
 
 
-
 Route::get('article/{id?}', function ($id) {
     $nArticle[0] = DB::table('articles')->where('id', $id)->first();
     $nArticle[1] = DB::table('users')->where('id',  $nArticle[0]->user_id)->first();
+    if (Auth::user()->email == $nArticle[1]->email) {
+        $nArticle[0]->hit++;
+        DB::table('articles')->where('id', $id)->update(['hit' => $nArticle[0]->hit]);
+    }
     return view('articles/article')->with('Article', $nArticle[0])->with('User', $nArticle[1]);
 });
 
+
+
+
+
+
+
 Route::get('edit/{id?}/{content?}', function ($id, $content) {
     DB::table('articles')->where('id', $id)->update(['content' => $content]);
-    return View('Main');
+    return  redirect(route('articles.index'));
 });
 Route::get('delete/{id?}', function ($id) {
     DB::table('articles')->where('id', '=', $id)->delete();
-    return View('Main');
+    return redirect(route('articles.index'));
 });
+
+Route::get('articles/error', function () {
+    return view('errors.loginError');
+});
+
+
 
 
 Event::listen('article.created', function ($article) {

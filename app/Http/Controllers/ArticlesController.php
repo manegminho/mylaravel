@@ -39,15 +39,14 @@ class ArticlesController extends Controller
 
         $this->validate($request, $rules, $message);
 
-
-
         $validator = \Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        $article = \App\User::find(1)->articles()->create($request->all());
+
+        $article = \App\User::find($request->userID)->articles()->create($request->all());
 
         if (!$article) {
             return back()->with('flash_message', '글이 저장되지 않았습니다.')->withInput();
