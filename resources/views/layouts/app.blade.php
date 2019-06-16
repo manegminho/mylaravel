@@ -81,7 +81,11 @@
                 {{ session('flash_message') }}
             </div>
         @endif
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
         <main class="py-4">
             @yield('content')
             @yield('content2')

@@ -19,10 +19,16 @@
 
             <div class="form-group">
                 <label for="title"><i class="fas fa-user-alt"></i> <b>{{ $User->name}}</b> </label>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
             </div>
 
             <div class="form-group" {{ $errors->has('content') ? 'has-error' : ''}}>
                 <label for="content">본문</label>
+<<<<<<< HEAD
 
                     @if(Auth::check() == FALSE)
                         <textarea name="context" id="content" rows="15" class="form-control " readonly>{{ $Article->content }}</textarea>
@@ -38,6 +44,21 @@
                 function test(){
                      var myElem = $("#content").val();
                      var strID = '<?= $Article->id ?>';
+=======
+                @if(Auth::user()->name == $User->name || Auth::user()->name == 'root')
+                <textarea name=context id="strtext" rows="15" class="form-control">{{ $Article->content }}</textarea>
+                @else
+                <textarea name="context" id="strtext" rows="15" class="form-control " readonly>{{ $Article->content }}</textarea>
+                @endif
+                {!! $errors->first('content', '<span class="form-error">:message</span>') !!}
+            </div>
+            <script>
+                function test(){
+                     var myElem = $("#strtext").val();
+                     var strID = '<?= $Article->id ?>';
+
+
+>>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
                      location.href="/edit/" +strID +"/" + myElem;
                 }
             </script>
@@ -46,6 +67,7 @@
             </div>
 
             <div class ="form-group" align="right">
+<<<<<<< HEAD
                 @if(Auth::check() )
 
                     @if(Auth::user()->email == $User->email || Auth::user()->name == 'root')
@@ -112,5 +134,35 @@
             @endif
           </div>
 
+=======
+                @if(Auth::user()->email == $User->email || Auth::user()->name == 'root')
+               {{--  <a href="/edit/{{$Article->id}}/" >
+                   <input type="button" class="btn btn-primary" value="수정" onclick = "test()" >
+                </a> --}}
+
+
+                <input type="button" class="btn btn-primary" value="수정" onclick = "test()" >
+
+                <a href="/delete/{{$Article->id}}">
+                     <input type="button" class="btn btn-primary" value="삭제" >
+                </a>
+
+                @endif
+            </div>
+
+            <div>
+                 <p>댓글 남기기</p>
+                 <table width = 100% height=10 align="center">
+                     <td class ="HomeStyle" width="92%" align="center">
+                         <textarea name=context id="strtext" rows="1" class="form-control"> </textarea>
+                     </td>
+
+                      <td class ="HomeStyle" width="8%" align="center">
+                         <button>댓글</button>
+                     </td>
+
+            </div>
+        </form>
+>>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
     </div>
 @stop
