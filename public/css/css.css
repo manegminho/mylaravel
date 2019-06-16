@@ -1,0 +1,68 @@
+.MainStyle {
+    font-size: 50px;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.headerStyle {
+    text-align: right;
+    color: rebeccapurple;
+    font-size: 15pt;
+}
+
+.IconStyle {
+    text-align: center;
+    color: lightgray;
+}
+
+.HomeStyle {
+    color: royalblue;
+    font-size: 25px;
+    text-align: center;
+}
+
+.FontStyle {
+    color: royalblue;
+    font-size: 3px;
+    text-align: center;
+}
+
+.ListStyle {
+    color: darkslategray;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.TableHeadFont {
+    font-size: 15px;
+    color: royalblue;
+    font-weight: bold;
+}
+
+.ReviewHeadStyle {
+    color: gray;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.DateStyle {
+    color: lightgray;
+    font-size: 3px;
+    text-align: right;
+}
+
+.CommentStyle {
+    color: darkslategray;
+    font-size: 15px;
+    text-align: left;
+}
+
+.CommentWriterStyle {
+    color: darkslateblue;
+    font-size: 10px;
+    text-align: center;
+}
