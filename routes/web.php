@@ -1,12 +1,5 @@
 <?php
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
->>>>>>> 8eee83c2b3a823278f5e17af74c32a5b3ba769e4
 
 /*
 |--------------------------------------------------------------------------
@@ -74,10 +67,6 @@ Route::resource('articles', 'ArticlesController');
 
 Route::get('create', 'ArticlesController@create');
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 8eee83c2b3a823278f5e17af74c32a5b3ba769e4
 Route::resource('Posts', 'PostsController');
 
 Route::resource('Comments', 'CommentController');
@@ -99,22 +88,6 @@ Route::get('article/{id?}', function ($id) {
 
     $queryComment = DB::table('comments')->where('article_id', $nArticle->id)->get();
     return view('articles/article')->with('Article', $nArticle)->with('User', $QueryUser)->with('Comments', $queryComment)->with('CommentCount', 0);
-<<<<<<< HEAD
-=======
-=======
-
-
-
-Route::get('article/{id?}', function ($id) {
-    $nArticle[0] = DB::table('articles')->where('id', $id)->first();
-    $nArticle[1] = DB::table('users')->where('id',  $nArticle[0]->user_id)->first();
-    if (Auth::user()->email == $nArticle[1]->email) {
-        $nArticle[0]->hit++;
-        DB::table('articles')->where('id', $id)->update(['hit' => $nArticle[0]->hit]);
-    }
-    return view('articles/article')->with('Article', $nArticle[0])->with('User', $nArticle[1]);
->>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
->>>>>>> 8eee83c2b3a823278f5e17af74c32a5b3ba769e4
 });
 
 
