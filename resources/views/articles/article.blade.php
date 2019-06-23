@@ -45,8 +45,12 @@
                 }
                  function EditComment(){
                      var myElem = $("#Com_content").val();
-                     var strID = $("#Com_id").val();
+                     //alert(myElem);
+                     if(myElem != "") {
+                         var strID = $("#Com_id").val();
                      location.href="/CommentsEdit/" +strID +"/" + myElem;
+                     }
+
                      //alert("/Comments/Edit/" +strID +"/" + myElem);
                 }
             </script>
