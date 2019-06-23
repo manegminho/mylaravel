@@ -27,6 +27,40 @@ class ArticlesController extends Controller
     }
 
 
+    public function review($id)
+    {
+        // echo  $content;
+        $Article = \App\Article::where('id', $id)->first();
+        $ArtWriter = \App\User::where('id', $Article->user_id)->first();
+        $Comments = \App\Comment::where('article_id', $id)->get();
+
+
+        $User = \Auth::user();
+        if ($User->email == $ArtWriter->email ||  $User->name == 'root') { } else {
+            $ArticleCount = $Article->hit;
+            $Article->hit++;
+            $Data = \App\Article::where('id', $id)->update(['hit' => $Article->hit]);
+            $Article = \App\Article::where('id', $id)->first();
+        }
+
+        return view('articles.article', compact('Article'), compact('Comments'))
+            ->with(['CommentCount' => 1, 'ArtWriter' => $ArtWriter, 'Article_id' => $id]);
+    }
+
+    public function edit($id, $content)
+    {
+        // echo  $content;
+        //$Data = \App\Article::find($id)->update(['content' => $content]);
+        $Data = \App\Article::where('id', $id)->update(['content' => $content]);
+        return redirect(route('articles.index'));
+    }
+
+
+    public function delete($id)
+    {
+        $Data = \App\Article::destroy($id);
+        return redirect(route('articles.index'));
+    }
 
     public function store(Request $request)
     {

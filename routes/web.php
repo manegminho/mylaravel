@@ -63,15 +63,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('articles', 'ArticlesController');
 
-Route::get('create', 'ArticlesController@create');
 
 Route::resource('Posts', 'PostsController');
 
-Route::resource('Comments', 'CommentController');
 
 
+/*
 Route::get('article/{id?}', function ($id) {
 
     $nArticle = DB::table('articles')->where('id', $id)->first();
@@ -89,21 +87,25 @@ Route::get('article/{id?}', function ($id) {
     $queryComment = DB::table('comments')->where('article_id', $nArticle->id)->get();
     return view('articles/article')->with('Article', $nArticle)->with('User', $QueryUser)->with('Comments', $queryComment)->with('CommentCount', 0);
 });
+*/
 
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('article/{id?}', 'ArticlesController@review')->where(['id' => '[0-9]+']);
+    Route::get('delete/{id?}', 'ArticlesController@delete')->where(['id' => '[0-9]+']);
+    Route::get('edit/{id?}/{content?}', 'ArticlesController@edit')->where(['id' => '[0-9]+', 'content=>[0-9]+']);
+    Route::resource('Comments', 'CommentController');
+    Route::resource('articles', 'ArticlesController');
+    Route::get('create', 'ArticlesController@create');
 
+    Route::get('CommentsEdit/{id?}/{content?}', 'CommentController@edit')->where(['id=>[0-9]+', 'content=>[0-9]+']);
 
-
-
-
-Route::get('edit/{id?}/{content?}', function ($id, $content) {
-    DB::table('articles')->where('id', $id)->update(['content' => $content]);
-    return  redirect(route('articles.index'));
+    Route::get(
+        'Comments/delete/{comment_id?}',
+        'CommentController@delete'
+    )->where(['comment_id=>[0-9]+']);
 });
-Route::get('delete/{id?}', function ($id) {
-    DB::table('articles')->where('id', '=', $id)->delete();
-    return redirect(route('articles.index'));
-});
+
 
 Route::get('articles/error', function () {
     return view('errors.loginError');

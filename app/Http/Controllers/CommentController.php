@@ -34,24 +34,38 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $Comment = \App\Comment::create($request->all());
+        if ($request->content == ('')) {
+            return back();
+        } else {
+            $Comment = \App\Comment::create($request->all());
+            //echo "$request->article_id";
+            return back();
+        }
+    }
 
-        /* $article = \App\User::find($request->userID)->articles()->create($request->all()); */
+    public function edit($id, $content)
+    {
+        if ($content == ('')) {
+            return back();
+        } else {
+            $Data = \App\Comment::where('id', $id)->update(['content' => $content]);
+            //echo "$request->article_id";
+            return back();
+        }
+    }
 
-      /*   if (!$Comment) {
-            return back()->with('flash_message', '글이 저장되지 않았습니다.')->withInput();
-        } */
 
-        var_dump('이벤트를 던집니다');
-        //event('article.created', [$article]);
-        //event(new \App\Events\ArticleCreated($article));
-        var_dump('이벤트를 던졌습니다');
+    public function delete($comment_id)
+    {
+        $Data = \App\Comment::where('id', $comment_id)->delete();
 
         return back();
     }
 
+
+
     /**
-     * Display the specified resource.
+     * Display the specified resource.s
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -67,10 +81,6 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

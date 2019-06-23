@@ -54,10 +54,6 @@
     font-size: 3px;
     text-align: right;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 8eee83c2b3a823278f5e17af74c32a5b3ba769e4
 
 .CommentStyle {
     color: darkslategray;
@@ -70,8 +66,40 @@
     font-size: 10px;
     text-align: center;
 }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a945983c23d4ebee28a69908ffadec7c7645a7a2
->>>>>>> 8eee83c2b3a823278f5e17af74c32a5b3ba769e4
+
+.checkBtn {
+    line-height: 45px;
+    color: #62acde;
+    margin-right: 5px;
+}
+
+
+.CommentView {
+    display: flex;
+    min-height: 50px;
+    height: 60px;
+    width: 100%;
+    line-height: 50px;
+    margin: 0.5rem 0;
+    padding: 0 0.9rem;
+    background: white;
+    border-radius: 200px;
+    border: 1px solid green;
+    margin-bottom: 15px;
+    box-shadow: 5px 10px 10px rgb(0, 0, 0, 0.03);
+}
+
+.removeBtn {
+    margin-top: 5px;
+    font-size: 20px;
+    color: lightcoral;
+}
+
+
+.inputBox {
+    background: #99ff99;
+    height: 50px;
+    width: 740px;
+    line-height: 50px;
+    border-radius: 5px;
+}

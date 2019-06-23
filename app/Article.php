@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'content', 'Date', 'hit'];
+    protected $fillable = ['user_id', 'title', 'content', 'Date', 'hit'];
 
     public function user()
     {
@@ -16,5 +16,10 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
