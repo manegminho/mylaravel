@@ -99,7 +99,7 @@
 .inputBox {
     background: #99ff99;
     height: 50px;
-    width: 740px;
+    width: 100%;
     line-height: 50px;
     border-radius: 5px;
 }
