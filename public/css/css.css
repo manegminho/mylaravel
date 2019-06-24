@@ -36,6 +36,11 @@
     font-style: italic;
 }
 
+.ListFontStyle {
+    font-size: small;
+    font-weight: bold;
+}
+
 .TableHeadFont {
     font-size: 15px;
     color: royalblue;

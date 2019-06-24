@@ -101,7 +101,7 @@
                                         <input type="text" id ="Com_content" name ="Com_content"height ="3px" size ="60%" style="border:none; solid ;"placeholder= {{ $Comment->content }}  />
                                     </td>
                                     <td width="10%" align="center">
-                                    <div class ="removeBtn">
+                                    <div>
                                         <i class="fas fa-edit" type="submit" onclick = "EditComment()"></i>
                                         <a href="/Comments/delete/{{$Comment->id}}">
                                         <i class="fas fa-trash-alt" ></i></a>
@@ -111,7 +111,7 @@
                                         <input type="text" height ="3px" size ="60%" style="border:none; solid ;"placeholder= {{ $Comment->content }} readonly />
                                     </td>
                                     <td width="10%" align="center">
-                                    <div class ="removeBtn">
+                                    <div>
                                         <i class="fas fa-edit"></i>
                                         <i class="fas fa-trash-alt" ></i>
                                     </div>

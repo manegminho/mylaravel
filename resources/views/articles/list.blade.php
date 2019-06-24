@@ -22,11 +22,11 @@
     <pre class ="ListStyle">        Article</pre>
     <div class="FontStyle">
         {{-- <table border=1 bordercolor ="white" cellspacing=0 cellpdding=0 width='90%' class="txt" align="center" bgcolor ="DDDDFF"> --}}
-            <table cellspacing=0 cellpdding=0 width='90%' class="txt" align="center" bgcolor ="DDDDFF">
+            <table cellspacing=0 cellpdding=0 width='90%'  align="center" bgcolor ="DDDDFF">
             <tr bgcolor="#5AB2C8">
                 <td colspan="5" height=1></td>
             </tr>
-            <tr height="65px" bordercolor ="lightgray" >
+            <tr class = "ListFontStyle" height="65px" bordercolor ="lightgray" >
                         <td width="10%" align="center">번호</td>
                         <td width="45%" align=center>제목</td>
                         <td width="25%" align=center>글쓴이</td>
@@ -39,7 +39,7 @@
             </tr>
 
             @forelse($articles as $article)
-                 <tr  height="65px"  bgcolor ='#FFFFFF'>
+                 <tr class = "ListFontStyle" height="65px"  bgcolor ='#FFFFFF'>
                     <td align="center">{{$article->id}}</td>
                     <td align=center><a href="/article/{{$article->id}}">{{$article->title}}</a></td>
                     <td align=center>{{$article->user->name}}</td>
