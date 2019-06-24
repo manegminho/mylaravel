@@ -98,7 +98,7 @@
                                 @if(Auth::user()->email == $Comment->email || Auth::user()->name == 'root')
                                     <td  width="76%" align="left">
                                         <input type="hidden" name="Com_id" id ="Com_id" class="btn btn-primary" value={{ $Comment->id }}>
-                                        <input type="text" id ="Com_content" name ="Com_content"height ="3px" size ="95" style="border:none; solid ;"placeholder= {{ $Comment->content }}  />
+                                        <input type="text" id ="Com_content" name ="Com_content"height ="3px" size ="70%" style="border:none; solid ;"placeholder= {{ $Comment->content }}  />
                                     </td>
                                     <td width="10%" align="center">
                                     <div class ="removeBtn">
@@ -108,7 +108,7 @@
                                     </div>
                                 @else
                                     <td  width="72%" align="left">
-                                        <input type="text" height ="3px" size ="95" style="border:none; solid ;"placeholder= {{ $Comment->content }} readonly />
+                                        <input type="text" height ="3px" size ="70%" style="border:none; solid ;"placeholder= {{ $Comment->content }} readonly />
                                     </td>
                                     <td width="10%" align="center">
                                 @endif
