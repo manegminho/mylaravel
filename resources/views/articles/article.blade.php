@@ -91,7 +91,7 @@
 
              @forelse($Comments as $Comment )
                 <table width = 100% height=10 >
-                    <tr class ="CommentView" height="25px">
+                    <tr class ="CommentView" height="25px" width="100%">
                         <td  width="4%" align="left">
                              {{ $CommentCount++}}
                         </td>
